@@ -22,3 +22,42 @@ elif A > B:
 else:
     print("=")
 ```
+## Задача 4 [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=766)
+```
+N,M,K = map(int, input().split())
+if N * M >= K:
+    print("YES")
+else:
+    print("NO")
+```
+## Задача 5 [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=21)
+```
+A,B,C = map(int, input().split())
+MinZ = min(A,B,C)
+MaxZ = max(A,B,C)
+result = MaxZ - MinZ
+print(result)
+```
+## Задача 6 [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=755)
+```
+X,Y,Z = map(int, input().split())
+result = X + Y - Z
+if result >= 0:
+    print(result)
+else:
+    print("Impossible")
+```
+## Задача 7 [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=892&ins=1#solution)
+```
+A = int(input())
+if A in (1,2,12):
+    print("Winter")
+elif A in(3,4,5):
+    print("Spring")
+elif A in (6,7,8):
+    print("Summer")
+elif A in (9,10,11):
+    print("Autumn")
+else:
+    print("Error")
+```
