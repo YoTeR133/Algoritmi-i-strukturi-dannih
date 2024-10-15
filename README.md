@@ -69,3 +69,18 @@ if A > 727 or A < 94 or B > 727 or B < 94 or C > 727 or C < 94:
 else:
     print(max(A,B,C))
 ```
+## Задача 9 `Кондиционер` [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=854)
+```
+A,B = map(int, input().split())
+C = input()
+if C == "heat":
+    print(max(A,B))
+elif C == "freeze":
+    print(min(A,B))
+elif C == "auto":
+    print(B)
+elif C == "fan":
+    print(A)
+else:
+    print("error")
+```
