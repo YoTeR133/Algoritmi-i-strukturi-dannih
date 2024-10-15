@@ -61,7 +61,7 @@ elif A in (9,10,11):
 else:
     print("Error")
 ```
-## Задача 8 Три толстяка [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=754)
+## Задача 8 `Три толстяка` [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=754)
 ```
 A,B,C = map(int, input().split())
 if A > 727 or A < 94 or B > 727 or B < 94 or C > 727 or C < 94:
