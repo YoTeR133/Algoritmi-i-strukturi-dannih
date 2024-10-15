@@ -11,7 +11,7 @@ result = a + b
 print(result)
 ```
 
-## Задача 3 [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=1](https://acmp.ru/index.asp?main=task&id_task=25)
+## Задача 3 [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=25&ins=1#solution)
 ```
 A = int(input())
 B = int(input())
