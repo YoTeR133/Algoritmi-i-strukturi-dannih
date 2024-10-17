@@ -1,3 +1,6 @@
+Чуменко Игорь ПИНб-21
+
+
 ## Задача 1 `Неглухой телефон`  [ссылка на задачу](https://acmp.ru/index.asp?main=task&id_task=108&ins=1#solution).
 ```
 N = int(input())
