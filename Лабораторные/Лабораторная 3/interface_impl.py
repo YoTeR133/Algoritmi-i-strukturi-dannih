@@ -74,7 +74,7 @@ class OrderedArray(ArrayInterface):
         return self.elements
 
     def get_min(self):
-        return self.elements[0] 
+        return self.elements[0] if self.elements else None
 
     def get_max(self):
-        return self.elements[-1] 
+        return self.elements[-1] if self.elements else None
