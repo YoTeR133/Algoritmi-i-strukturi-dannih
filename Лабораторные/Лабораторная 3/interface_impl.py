@@ -22,12 +22,20 @@ class UnorderedArray(ArrayInterface):
         if value in self.elements:
             self.elements.remove(value)
             if value == self.min_value or value == self.max_value:
-                if self.elements:
-                    self.min_value = min(self.elements)
-                    self.max_value = max(self.elements)
-                else:
-                    self.min_value = None
-                    self.max_value = None
+                self._recalculate_min_max()
+
+    def _recalculate_min_max(self):
+        if not self.elements:
+            self.min_value = None
+            self.max_value = None
+            return
+        self.min_value = self.elements[0]
+        self.max_value = self.elements[0]
+        for value in self.elements:
+            if value < self.min_value:
+                self.min_value = value
+            if value > self.max_value:
+                self.max_value = value
 
     def get_elements(self):
         return self.elements
@@ -75,7 +83,19 @@ class OrderedArray(ArrayInterface):
         return self.elements
 
     def get_min(self):
-        return self.elements[0] if self.elements else None
+        if not self.elements:
+            return None
+        min_value = self.elements[0]
+        for value in self.elements:
+            if value < min_value:
+                min_value = value
+        return min_value
 
     def get_max(self):
-        return self.elements[-1] if self.elements else None
+        if not self.elements:
+            return None
+        max_value = self.elements[0]
+        for value in self.elements:
+            if value > max_value:
+                max_value = value
+        return max_value
