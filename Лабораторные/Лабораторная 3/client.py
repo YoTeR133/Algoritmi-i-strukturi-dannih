@@ -7,7 +7,7 @@ def main():
     print("Работа с неупорядоченным массивом:")
     unordered_array = UnorderedArray(max_size)
     for i in range(max_size):
-        random_value = random.randint(1, 100)
+        random_value = random.randint(1, 100
         unordered_array.insert(random_value)
 
     print("Неупорядоченный массив:", unordered_array.get_elements())
