@@ -33,4 +33,5 @@ def main():
     ordered_array.delete(search_value)
     print("После удаления:", ordered_array.get_elements())
 
-main()
+if __name__ == "__main__":
+    main()
