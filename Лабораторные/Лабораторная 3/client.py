@@ -1,5 +1,6 @@
 import random
-from interface_impl import UnorderedArray, OrderedArray
+from unordered_array import UnorderedArray
+from ordered_array import OrderedArray
 
 def main():
     max_size = int(input("Введите максимальный размер массива: "))
