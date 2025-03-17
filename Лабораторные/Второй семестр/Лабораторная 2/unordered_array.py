@@ -20,24 +20,6 @@ class UnorderedArray(ArrayInterface):
     def display(self):
         print(" ".join(map(str, self.elements)))
 
-    def get_min(self):
-        if not self.elements:
-            return None
-        min_value = self.elements[0]
-        for value in self.elements[1:]:
-            if value < min_value:
-                min_value = value
-        return min_value
-
-    def get_max(self):
-        if not self.elements:
-            return None
-        max_value = self.elements[0]
-        for value in self.elements[1:]:
-            if value > max_value:
-                max_value = value
-        return max_value
-
     def quick_sort(self):
         if len(self.elements) <= 1:
             return
@@ -45,31 +27,22 @@ class UnorderedArray(ArrayInterface):
 
     def _quick_sort(self, left, right):
         stack = deque([(left, right)])
-        
+
         while stack:
             left, right = stack.pop()
-            size = right - left + 1
             
-            if size <= 133: 
-                self._insertion_sort(left, right)
-            elif left < right:
-                pivot = self._median_of_three(left, right)
-                partition_idx = self._partition(left, right, pivot)
-                if partition_idx - left < right - partition_idx:
-                    stack.append((partition_idx + 1, right))
-                    stack.append((left, partition_idx - 1))
-                else:
-                    stack.append((left, partition_idx - 1))
-                    stack.append((partition_idx + 1, right))
+            if left >= right:
+                continue
 
-    def _insertion_sort(self, left, right):
-        for i in range(left + 1, right + 1):
-            temp = self.elements[i]
-            j = i - 1
-            while j >= left and self.elements[j] > temp:
-                self.elements[j + 1] = self.elements[j]
-                j -= 1
-            self.elements[j + 1] = temp
+            pivot = self._median_of_three(left, right)
+            partition_idx = self._partition(left, right, pivot)
+
+            if partition_idx - left > right - partition_idx:
+                stack.append((left, partition_idx - 1))
+                stack.append((partition_idx + 1, right))
+            else:
+                stack.append((partition_idx + 1, right))
+                stack.append((left, partition_idx - 1))
 
     def _median_of_three(self, left, right):
         center = (left + right) // 2
@@ -90,13 +63,18 @@ class UnorderedArray(ArrayInterface):
     def _partition(self, left, right, pivot):
         left_ptr = left
         right_ptr = right - 1
+
         while True:
-            while left_ptr <= right and self.elements[left_ptr] < pivot:
+            while left_ptr <= right_ptr and self.elements[left_ptr] < pivot:
                 left_ptr += 1
-            while right_ptr >= left and self.elements[right_ptr] > pivot:
+            while right_ptr >= left_ptr and self.elements[right_ptr] > pivot:
                 right_ptr -= 1
+
             if left_ptr >= right_ptr:
                 break
+
             self.elements[left_ptr], self.elements[right_ptr] = self.elements[right_ptr], self.elements[left_ptr]
+            left_ptr += 1
+            right_ptr -= 1
         self.elements[left_ptr], self.elements[right - 1] = self.elements[right - 1], self.elements[left_ptr]
         return left_ptr
