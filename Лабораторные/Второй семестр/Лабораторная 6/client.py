@@ -1,7 +1,7 @@
-from graphi import sozdat_graf, dobavit_vershina, dobavit_rebro, pokazat_graf
+from graphi import Graf
 
 def main():
-    graf = sozdat_graf()
+    graf = Graf()
 
     while True:
         print("\nМеню:")
@@ -14,13 +14,13 @@ def main():
 
         if vibor == "1":
             v = input("Введите вершину: ")
-            dobavit_vershina(graf, v)
+            graf.dobavit_vershinu(v)
         elif vibor == "2":
             otkuda = input("Из вершины: ")
             kuda = input("В вершину: ")
-            dobavit_rebro(graf, otkuda, kuda)
+            graf.dobavit_rebro(otkuda, kuda)
         elif vibor == "3":
-            pokazat_graf(graf)
+            graf.pokazat_graf()
         elif vibor == "4":
             break
 
